@@ -1,0 +1,32 @@
+{
+  "name": "getir",
+  "version": "1.0.0",
+  "description": "Getir code challenge",
+  "main": "./src/index.js",
+  "scripts": {
+    "dev": "nodemon --inspect ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bdbernardy/getir.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bdbernardy/getir/issues"
+  },
+  "homepage": "https://github.com/bdbernardy/getir#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "joi": "^17.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.4.0"
+  }
+}
