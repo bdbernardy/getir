@@ -1,35 +1,22 @@
-const Joi = require('joi');
 const express = require('express');
-const { validateBody } = require('./validator');
-
-const mySchema = Joi.object({
-  name: Joi.string().required()
-});
+const validator = require('./validator');
+const { get, post } = require('./controller');
+const errorHandler = require('./errors');
 
 const app = express();
 
-app.get(
-  '/',
-  /*validator.query(querySchema),*/ (req, res) => {
-    // If we're in here then the query was valid!
-    res.end(`Hello ${req.query.name}!`);
-  }
-);
+const PORT = process.env.PORT ?? 5050;
 
-app.post('/', express.json(), validateBody(mySchema), async (req, res, next) => {
-  const handler = async (req, res) => {
-    // If we're in here then the query was valid!
-    res.end(`Post ${req.body.name}!`);
-  };
+async function bootstrap() {
+  app.get('/', get);
 
-  handler(req, res, next).catch(next);
-});
+  app.post('/', express.json(), validator, post);
 
-app.use((err, req, res, next) => {
-  console.log(err);
-  next();
-});
+  app.use(errorHandler);
 
-app.listen(5050, () => {
-  console.log('App started on port 5050');
-});
+  app.listen(PORT, () => {
+    console.log(`App started on port ${PORT}`);
+  });
+}
+
+bootstrap();
