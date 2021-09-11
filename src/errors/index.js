@@ -1,6 +1,6 @@
 const { ValidationError } = require('joi');
 
-module.exports = (err, req, res, next) => {
+module.exports = (err, req, res) => {
   if (err instanceof ValidationError) {
     res.status(400);
     res.json({

@@ -7,7 +7,7 @@ exports.get = (req, res) => {
 exports.post = async (req, res, next) => {
   const handler = async (req, res) => {
     const records = await getRecords(req.body);
-    // If we're in here then the query was valid!
+
     res.json({
       code: 0,
       msg: 'Success',

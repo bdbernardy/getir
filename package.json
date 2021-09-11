@@ -7,7 +7,9 @@
     "start": "node ./src/index.js",
     "dev": "nodemon --inspect ./src/index.js",
     "test": "jest",
-    "test:debug": "node --inspect ./node_modules/jest/bin/jest.js --runInBand"
+    "test:debug": "node --inspect ./node_modules/jest/bin/jest.js --runInBand",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix --ext .js,.jsx ."
   },
   "jest": {
     "testTimeout": 30000
