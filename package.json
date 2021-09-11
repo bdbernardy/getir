@@ -6,7 +6,11 @@
   "scripts": {
     "start": "node ./src/index.js",
     "dev": "nodemon --inspect ./src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:debug": "node --inspect ./node_modules/jest/bin/jest.js --runInBand"
+  },
+  "jest": {
+    "testTimeout": 30000
   },
   "repository": {
     "type": "git",
@@ -29,8 +33,11 @@
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^24.4.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.1.1",
     "nodemon": "^2.0.12",
-    "prettier": "^2.4.0"
+    "prettier": "^2.4.0",
+    "supertest": "^6.1.6"
   }
 }

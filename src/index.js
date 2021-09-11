@@ -1,27 +1,16 @@
 require('dotenv').config();
-const express = require('express');
 
-const validator = require('./validator');
-const { get, post } = require('./controller');
-const errorHandler = require('./errors');
+const { createServer } = require('./create-server');
 const { client } = require('./mongodb');
-
-const app = express();
 
 const PORT = process.env.PORT ?? 5050;
 
 async function bootstrap() {
   await client.connect();
 
-  app.get('/', get);
+  const app = createServer();
 
-  app.post('/', express.json(), validator, post);
-
-  app.use(errorHandler);
-
-  app.listen(PORT, () => {
-    console.log(`App started on port ${PORT}`);
-  });
+  app.listen(PORT);
 }
 
 bootstrap();
