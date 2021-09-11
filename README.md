@@ -1,4 +1,5 @@
-# Usage
+# Getir Code Assignment
+## Usage
 POST / with the following payload signature:
 ```json
 {
@@ -9,7 +10,7 @@ POST / with the following payload signature:
 }
 ```
 
-# Configuration
+## Configuration
 The application expects the following environment variables:
 * COLLECTION_NAME=records
 * DB_NAME=getir-case-study
